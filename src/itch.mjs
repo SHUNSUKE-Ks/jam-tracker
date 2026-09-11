@@ -40,7 +40,9 @@ export function parseList(html) {
 
 const TBA = /\b(tba|tbd|tbc|revealed?|announced?|announcement|will be|to be|secret|hidden|surprise|up to you)\b|\.\.\./i;
 const NOT_THEME = /\btheme\b|how well|adhere|^(required|optional|none|n\/a|yes|no)$/i; // 採点項目や「テーマ: 必須」を拾わない
-const THEME_LINE = /^(?:the\s+)?(?:(?:jam|main|secondary|official)\s+)?theme\s*(?:is|:|-|–|—)\s*(.+)$/i;
+const PREFIX = String.raw`^(?:the\s+)?(?:(?:game|jam|main|secondary|official)\s+)?theme`;
+const THEME_LINE = new RegExp(PREFIX + String.raw`\s*(?:is|:|-|–|—)\s*(.+)$`, 'i'); // Theme: 〇〇
+const THEME_HEAD = new RegExp(PREFIX + String.raw`\s*:?$`, 'i'); // 見出し「THEME」の次の行に書く形
 
 // 詳細ページ: 説明文と、書いてあればテーマを拾う
 export function parseDetail(html) {
@@ -56,13 +58,15 @@ export function parseDetail(html) {
 // テーマは説明文からの推定。「Theme: 〇〇」のような短い行だけを見る。未発表・曖昧なら null
 export function findTheme(text) {
   if (!text) return null;
-  for (const raw of text.split('\n')) {
-    const line = raw.trim();
+  const lines = text.split('\n').map((l) => l.trim());
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
     if (line.length > 100) continue;
-    const m = line.match(THEME_LINE);
-    if (!m) continue;
-    if (TBA.test(line)) return null;
-    const t = m[1].replace(/^[\s:"“'‘]+|[\s"”'’.!]+$/g, '').trim();
+    let found = line.match(THEME_LINE)?.[1];
+    if (found == null && THEME_HEAD.test(line)) found = lines.slice(i + 1).find(Boolean);
+    if (found == null) continue;
+    if (TBA.test(line) || TBA.test(found)) return null;
+    const t = found.replace(/^[\s:"“'‘]+|[\s"”'’.!]+$/g, '').trim();
     if (NOT_THEME.test(t)) return null;
     return t.length >= 2 && t.length <= 60 ? t : null;
   }

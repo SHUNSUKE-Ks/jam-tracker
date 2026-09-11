@@ -45,6 +45,9 @@ check('テーマ抽出', () => {
   assert.equal(findTheme('Theme - How well did the game follow the theme?'), null);
   assert.equal(findTheme('Theme: Freedom, but at what cost?'), 'Freedom, but at what cost?');
   assert.equal(findTheme('Theme: required'), null);
+  assert.equal(findTheme('Kaidan Nights\nGame Theme: Japanese Urban Legends'), 'Japanese Urban Legends');
+  assert.equal(findTheme('The theme will revealed at the start.\nTHEME\n"unstoppable"\nRULES\nThe theme is required.'), 'unstoppable');
+  assert.equal(findTheme('Theme Adherence:\nYour game must fit'), null);
   assert.equal(findTheme('The theme is a suggestion to inspire creativity and give us all something to work with'), null);
   assert.equal(findTheme('We keep the theme secret until the start. The theme is announced at the start to ensure no one cheats by starting their game early'), null);
 });
