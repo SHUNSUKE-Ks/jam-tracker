@@ -14,9 +14,7 @@
         "name": "AI禁止",
         "words": ["no ai", "no generative ai", "no ai-generated"],
         "patterns": ["\\b(generative )?ai\\b[^.\\n]{0,80}\\b(not allowed|not permitted|prohibited|banned|forbidden|disallowed)\\b"]
-      },
-      { "name": "RPGツクール専用", "words": ["rpg maker"] },
-      { "name": "アナログ", "words": ["analog games", "tabletop", "ttrpg"] }
+      }
     ]
   }
 }
