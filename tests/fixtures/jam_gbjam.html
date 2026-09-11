@@ -1,0 +1,1012 @@
+<!DOCTYPE HTML><html lang="en"><head><meta charset="UTF-8"/><META name="GENERATOR" content="IBM HomePage Builder 2001 V5.0.0 for Windows"><meta name="msvalidate.01" content="3BB4D18369B9C21326AF7A99FCCC5A09" /><meta property="fb:app_id" content="537395183072744" /><title>GBJAM 14 - itch.io</title><meta name="csrf_token" value="WyIwTWtiIiwxNzg5MTE4MDQyLCJVZmdvTmFWNU9xUG1NZUsiXQ==.NC3uDGSgHr4mjAH3wVAl8VQnu0Y=" /><meta content="GBJAM 14" property="og:title"/><meta content="itch.io" property="og:site_name"/><meta content="4503599627724030" property="twitter:account_id"/><link rel="manifest" href="/static/manifest.json"/><script type="application/ld+json">{"@type":"BreadcrumbList","itemListElement":[{"item":{"@id":"https:\/\/itch.io\/jams","name":"Jams"},"position":1,"@type":"ListItem"}],"@context":"http:\/\/schema.org"}</script><meta content="summary_large_image" name="twitter:card"/><meta content="https://img.itch.zone/aW1nLzI4Njc1MDU4LnBuZw==/508x254%23mb/8RP1ke.png" property="twitter:image"/><meta content="@itchio" name="twitter:site"/><meta content="GBJAM 14" name="twitter:title"/><meta content="A game jam from 2026-09-11 to 2026-10-05 hosted by Polyducks, chasehunter, DL, poltergasm, timconceivable, tatltuae, Traslo, arknano &amp; batfeula. GBJAM is about making games inspired by the gameboy. The jam lasts ten days and includes two weekends. The secondary theme is... To be announced on th..." name="twitter:description"/><meta content="A game jam from 2026-09-11 to 2026-10-05 hosted by Polyducks, chasehunter, DL, poltergasm, timconceivable, tatltuae, Traslo, arknano &amp; batfeula. GBJAM is about making games inspired by the gameboy. The jam lasts ten days and includes two weekends. The secondary theme is... To be announced on th..." property="og:description"/><meta content="A game jam from 2026-09-11 to 2026-10-05 hosted by Polyducks, chasehunter, DL, poltergasm, timconceivable, tatltuae, Traslo, arknano &amp; batfeula. GBJAM is about making games inspired by the gameboy. The jam lasts ten days and includes two weekends. The secondary theme is... To be announced on th..." name="description"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#FA5C5C" name="theme-color"/><meta content="https://img.itch.zone/aW1nLzI4Njc1MDU4LnBuZw==/original/BQLZWR.png" property="og:image"/><link href="https://static.itch.io/jam.css?1789116060" rel="stylesheet"/><script type="text/javascript">window.itchio_translations_url = 'https://static.itch.io/translations';</script><script type="text/javascript" src="https://static.itch.io/lib.min.js?1789116060"></script><script type="text/javascript" src="https://static.itch.io/bundle.min.js?1789116060"></script><script data-src="https://static.itch.io/react.min.js?1789116060" id="lib_react_src"></script><script type="text/javascript" src="https://static.itch.io/jam.min.js?1789116060"></script><script type="text/javascript">I.current_user = null;</script><script type="text/javascript">if (!window.location.hostname.match(/localhost/)) {      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', "G-36R7NPBMLS", {});
+      (function(d, t, s, m) {
+        s = d.createElement(t);
+        s.src = "https:\/\/www.googletagmanager.com\/gtag\/js?id=G-36R7NPBMLS";
+        s.async = 1;
+        m = d.getElementsByTagName(t)[0];
+        m.parentNode.insertBefore(s, m);
+      })(document, "script");
+      }</script><style type="text/css" id="jam_theme">:root{--itchio_ui_bg: #493a38;}body{background-color: #a3574e;}.jam_page_wrap{color: #233933;background-color: #a3574e;font-family: 'Host Grotesk',Lato,LatoExtended,sans-serif;font-size: 100%;--itchio_border_radius: initial;--itchio_link_color: #a3574e;--itchio_border_color: #bfc2bb;--itchio_button_color: #d5d8d1;--itchio_button_fg_color: #2a2b29;--itchio_button_shadow_color: #b4b7b0;--itchio_button_border_color: #b4b7b0;--itchio_button_hover_color: #cacdc6;--itchio_button_active_color: #d7dad3;}.jam_body{border-radius: var(--itchio_border_radius,0);}.view_jam_page h1,.view_jam_page h2,.view_jam_page h3,.view_jam_page h4,.view_jam_page h5,.view_jam_page h6{font-family: 'Jersey 10'; color: #233933}.view_jam_page .jam_body,.view_jam_page .grid_outer{background-color: rgba(213, 216, 209, 1);}.view_jam_page .jam_body{box-shadow: 0 0 0 2px transparent;}.view_jam_page .grid_outer .itch_footer{border-top: 1px solid #b5b8b1 !important;background-color: #bfc2bb;}.view_jam_page .game_grid_widget .game_cell .game_text,.view_jam_page .grid_outer .game_count,.view_jam_page .grid_outer .footer_submissions{color: #545750 !important;}.view_jam_page .game_grid_widget .game_cell .game_platform,.view_jam_page .game_grid_widget .game_cell .game_genre,.view_jam_page .game_grid_widget .game_cell .game_author a,.view_jam_page .grid_outer .powerd_by{color: #747770 !important;}.view_jam_page .header_tabs .community_activity{background-color: #bfc2bb;color: #233933;}.view_jam_page .jam_filter_picker .filter_item{color: #747770 !important;}.view_jam_page .jam_filter_picker .filter_item:hover,.view_jam_page .jam_filter_picker .filter_item.active{color: #545750 !important;border-color: #a3574e !important;}.view_jam_page .jam_filter_picker .divider{color: #545750;}body{
+	--custom-white: #D6D8D1;
+	--custom-bright: #E6B95A;
+	--custom-dark: #A3574E;
+	--custom-black: #233932;
+}
+body{
+	background-attachment: fixed;
+}
+body .jam_body{
+	border-radius: 1em;
+	/* -webkit-box-shadow: 0px 0px 15px 4px rgba(56,28,46,1)!important;
+	-moz-box-shadow: 0px 0px 15px 4px rgba(56,28,46,1)!important;
+	box-shadow: 0px 0px 15px 4px rgba(56,28,46,1)!important; */
+	margin-bottom: 40px!important;
+	background-color: var(--custom-white)!important;
+}
+/*.jam_content.user_formatted:after{
+	content: "";
+	height: 100px;
+	display: block;
+	width: 100%;
+}*/
+.custom-lead-image{
+	max-width: 600px!important;
+	width: 80%;
+	margin: 0 auto 40px;
+	padding-top: 20px;
+	display: block;
+}
+.jam_content.user_formatted h1{
+	width: 100%;
+	text-align: center;
+	font-size: 70px;
+	padding: 0;
+	margin: 0;
+}
+.jam_content.user_formatted h2{
+	width: 100%;
+	text-align: center;
+	font-size: 40px;
+	padding: 0;
+	margin: 1em auto;
+}
+.view_jam_page .jam_submitter_widget, .view_jam_page .jam_header_widget, .view_jam_page .jam_header_widget .stat_box{
+	border-color: var(--custom-bright);
+	border-width: 4px;
+}
+.view_jam_page .jam_submitter_widget, .view_jam_page .jam_header_widget, .view_jam_page .jam_header_widget .stat_box{
+	background-color: var(--custom-white);
+}
+.block_value{
+	font-size: 30px!important;
+}
+.custom-section{
+	display: block;
+	margin: 2em auto;
+	padding: 1em;
+	overflow: auto;
+}
+.custom-section-rules,
+.custom-section-ratings{
+	border-radius: 1em;
+	margin-top: 6em;
+}
+.custom-section-rules{
+	background-color: var(--custom-dark);
+}
+.custom-section-ratings{
+	background-color: var(--custom-bright);
+}
+.custom-section-rules h2{
+	position: static;
+	box-sizing: border-box;
+	display: block;
+	height: 1;
+	color: var(--custom-white);
+}
+.custom-section-ratings h2 {
+	color: var(--custom-dark)
+}
+.custom-section-rules > ul,
+.custom-section-ratings > ul{
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0;
+	margin: 0;
+	margin-top: 1em;
+}
+.custom-section-rules > ul > li,
+.custom-section-ratings > ul > li{
+	box-sizing: border-box;
+	padding: 1em 2em;
+	background-color: var(--custom-white);
+	width: 47.5%;
+	margin: 1.25%;
+	border-radius: 1em;
+	display: block;
+	/* -webkit-box-shadow: 0px 0px 5px 3px rgba(56,28,46,0.5)!important;
+	-moz-box-shadow: 0px 0px 5px 3px rgba(56,28,46,0.5)!important;
+	box-shadow: 0px 0px 5px 3px rgba(56,28,46,0.5)!important; */
+}
+.custom-rules-accuracy{
+	display: flex;
+	align-items:center;
+	box-sizing: border-box;
+	padding: 1em 2em;
+	background-color: var(--custom-white);
+	width: 97.5%;
+	margin: 1.25%;
+	border-radius: 1em;
+	/* -webkit-box-shadow: 0px 0px 5px 3px rgba(56,28,46,0.5) !important;
+	-moz-box-shadow: 0px 0px 5px 3px rgba(56,28,46,0.5) !important;
+	box-shadow: 0px 0px 5px 3px rgba(56,28,46,0.5) !important; */
+}
+	.custom-rules-accuracy h3{
+		font-size: 30px;
+		text-align: center;
+		margin: 0;
+		width: 100%;
+		margin: 0 auto;
+	}
+	.custom-rules-accuracy span.custom-rules-accuracy-textblock{
+		padding: 0 1rem;
+	}
+	.custom-rules-accuracy img.custom-pixel-img{
+		width: 320px;
+		height: auto;
+	}
+	@media screen and (max-width: 700px){
+		.custom-rules-accuracy{
+			flex-direction: column-reverse;
+		}
+	}
+.custom-section-FAQ{
+	border-radius: 1em;
+	background-color: var(--custom-white);
+	margin-top: 6em;
+	margin-bottom: 0;
+}
+.custom-section details{
+	margin: 0;
+}
+.custom-section-FAQ > details{
+	padding: 10px 0;
+}
+.custom-section-FAQ summary{
+	cursor: pointer;
+}
+.custom-section-FAQ h2 {
+	color: var(--custom-black)
+}
+.custom-section-FAQ details > summary > h3{
+	font-size: 30px;
+    letter-spacing: 0.03em;
+}
+.custom-section-FAQ details > summary > h3{
+	display: inline-block;
+	padding: 2px 5px;
+	margin: 0!important;
+	background-color: var(--custom-white);
+	background-color: var(--custom-bright);
+}
+.custom-section-FAQ details > summary ~ *{
+	margin-left: 1em;
+}
+.custom-section-FAQ details[open] > details > summary{
+	margin: 0;
+	color: var(--custom-black);
+	padding: 5px 3px;
+	color: var(--custom-black);
+}
+.custom-section-FAQ details[open] > details[open]{
+	padding-bottom: 1em;
+	margin-bottom: 1em;
+	/* border-bottom: 1px solid var(--custom-black); */
+}
+.custom-section-FAQ details[open] > details[open] > summary span{
+	color: var(--custom-bright);
+}
+.custom-section-FAQ details > details[open] > summary::marker{
+	color: var(--custom-bright);
+}
+.custom-section-FAQ details > details p{
+	margin: 0.5em 1em;
+	display: block;
+	box-sizing: border-box;
+	padding: 0;
+	padding-left: 0.5em;
+	max-width: 500px;
+	width: calc(100% - 1em)!important;
+}
+/* Credits list ("Who makes GBJAM possible?") -- itch's template applies a
+   flexbox layout to bare <li> elements (alternating row-reverse), which
+   scrambles the name/description order. Force it back to a normal
+   bulleted, block-level list. */
+.custom-section-FAQ .custom-people-list,
+.custom-section-FAQ .custom-people-list ul{
+	display: block !important;
+	list-style: disc !important;
+	margin: 0.5em 0 !important;
+	padding-left: 1.25em !important;
+	text-align: left !important;
+}
+.custom-section-FAQ .custom-people-list ul{
+	list-style: circle !important;
+	margin: 0.25em 0 0 !important;
+}
+.custom-section-FAQ .custom-people-list li{
+	display: list-item !important;
+	flex-direction: unset !important;
+	justify-content: unset !important;
+	align-items: unset !important;
+	text-align: left !important;
+	width: auto !important;
+	margin-bottom: 0.15em;
+}
+.custom-section-FAQ .custom-people-list > li{
+	margin-bottom: 0.75em;
+}
+/* NEW THINGS BELOW HERE */
+.custom-pixel-img,
+.jam_banner{
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
+}
+.jam_banner{
+	height: 204px;
+	width: auto;
+	padding: 20px 20px 30px;
+}
+.custom-title-img{
+	display: block;
+	margin: 0 auto;
+	width: 600px;
+}
+.custom-section-intro{
+	background-color: var(--custom-white);
+	border-radius: 1em;
+}
+.custom-section-intro p{
+	width: 80%;
+	display: block;
+	margin: 1em auto 2em;
+	font-size: 1.25em;
+	text-align:center;
+}
+.custom-section h1{
+	font-size: 5em!important;
+}
+.custom-section h2{
+	margin: 0!important;
+	font-size: 4em!important;
+}
+.custom-section > p{
+	width: 80%;
+	display: block;
+	margin: 1em auto 2em;
+	text-align: center;
+}
+.custom-rules{
+	overflow: hidden;
+}
+.custom-rules .custom-rules-img{
+	display: block;
+	margin: auto;
+}
+.custom-rules h3{
+	font-size: 30px;
+	text-align: center;
+	margin: 0;
+}
+.custom-section-extras {
+	background-color: var(--custom-white);
+	border-radius: 1em;
+	color: var(--custom-black);
+	margin-top: 6em;
+}
+.custom-section-extras h2 {
+	color: var(--custom-black)
+}
+.custom-section-extras img {
+	margin: 0.5em;
+}
+@media (max-width: 800px){
+	.jam_content.user_formatted{
+		margin: 0!important;
+	}
+	.custom-section-intro{
+		border-radius: 0;
+	}
+	.custom-section h1{
+		font-size: 10vw!important;
+	}
+	.custom-section-rules ul li{
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.custom-section-rules ul li:nth-of-type(2n){
+		flex-direction: row-reverse;
+	}
+	.custom-section-rules ul li span{
+		padding: 0 1em;
+	}
+}
+.jam_banner_outer{
+	background-color: var(--custom-dark);
+	max-width: 960px;
+	margin: 0 auto;
+	border-radius: 1em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+.jam_banner_outer .jam_banner{
+	margin: 0 0 auto auto;
+}
+.jam_body{
+	margin: 0 auto!important;
+}
+.custom-section-intro{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.custom-title-img{
+	width: 320px;
+	height: 288px;
+	margin: 0 40px;
+}
+@media (max-width: 900px){
+	.custom-section-intro{
+		flex-direction: column;
+	}
+	.custom-title-img{
+		width: 30vw;
+		height: 30vw;
+		margin: 1em auto;
+	}
+}
+@media (max-width: 600px){
+	.custom-rules-img{
+		width: 120px;
+	}
+}
+@media (max-width: 800px){
+	.custom-section{
+		border-radius: 0!important;
+	}
+	.custom-section-ratings ul li{
+		width: 100%!important;
+	}
+}
+.custom-section>p,
+.custom-section > .custom-textblock p{
+	font-size: 1.25em;
+	width: 80%;
+	display: block;
+	text-align: center;
+	margin: 1em auto 2em;
+}
+.custom-section-theme h2{
+	color: var(--custom-dark);
+}
+.custom-section-theme p {
+	color: var(--custom-dark);
+}
+.custom-section-theme{
+	background-color: var(--custom-bright);
+	border-radius: 1em;
+}
+@media (max-width: 800px){
+	.custom-section h2{
+		font-size: 8vw!important;
+	}
+}
+.custom-credits{
+	background-color: var(--custom-dark);
+	color: var(--custom-white);
+	padding: 0.25em 2em;
+	border-radius: 1em;
+}
+.custom-credits p{
+	font-size: 0.8em;
+}
+/* Items at the bottom */
+.custom-splash-container{
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	margin: 0 auto;
+	justify-content: center;
+}
+.custom-splash-container .custom-splash-img{
+	/* border: 1px solid var(--custom-black); */
+	height: auto;
+	/* -webkit-box-shadow: 2px 2px 4px 4px rgba(56,28,46,0.5)!important;
+	-moz-box-shadow: 2px 2px 4px 4px rgba(56,28,46,0.5)!important;
+	box-shadow: 2px 2px 4px 4px rgba(56,28,46,0.5)!important; */
+}
+@media (min-width: 700px){
+	.custom-splash-container .custom-splash-img{
+		width: 23%;
+		width: calc(25% - 14px);
+		margin: 8px 7px 7px 8px;
+	}
+	.custom-splash-container .custom-splash-img:nth-of-type(4n){
+		margin-right: 0;
+	}
+	.custom-splash-container .custom-splash-img:nth-of-type(4n-3){
+		margin-left: 0;
+	}
+	.custom-splash-container .custom-splash-img:nth-of-type(1),
+	.custom-splash-container .custom-splash-img:nth-of-type(2),
+	.custom-splash-container .custom-splash-img:nth-of-type(3),
+	.custom-splash-container .custom-splash-img:nth-of-type(4){
+		margin-top: 0;
+	}
+}
+@media (min-width: 500px) and (max-width: 699px){
+	.custom-splash-container .custom-splash-img{
+		width: 46%;
+		width: calc(50% - 14px);
+		margin: 8px 7px 7px 8px;
+	}
+	.custom-splash-container .custom-splash-img:nth-of-type(3n){
+		margin-right: 0;
+	}
+	.custom-splash-container .custom-splash-img:nth-of-type(3n-2){
+		margin-left: 0;
+	}
+	.custom-splash-container .custom-splash-img:nth-of-type(1),
+	.custom-splash-container .custom-splash-img:nth-of-type(2),
+	.custom-splash-container .custom-splash-img:nth-of-type(3){
+		margin-top: 0;
+	}
+}
+@media (max-width: 499px){
+	.custom-splash-container .custom-splash-img{
+		width: 48%;
+		width: calc(50% - 15px);
+		margin: 8px 7px 7px 8px;
+	}
+	.custom-splash-container .custom-splash-img:nth-of-type(2n){
+		margin-right: 0;
+	}
+	.custom-splash-container .custom-splash-img:nth-of-type(2n-1){
+		margin-left: 0;
+	}
+	.custom-splash-container .custom-splash-img:nth-of-type(1),
+	.custom-splash-container .custom-splash-img:nth-of-type(2){
+		margin-top: 0;
+	}
+}
+.custom-credits a{
+	color: var(--custom-bright);
+}
+/*********************************/
+/* CUSTOM CRITERIA ILLUSTRATIONS */
+/*********************************/
+ul.custom-criteria h3 {
+	font-size: 30px;
+}
+ul.custom-criteria li{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+ul.custom-criteria li:nth-of-type(2n){
+	flex-direction: row-reverse;
+}
+ul.custom-criteria li .custom-textblock{
+	width: 100%;
+	width: calc(100% - 96px);
+	padding: 0 1em;
+}
+ul.custom-criteria li:nth-of-type(2n-1) .custom-textblock{
+	text-align: right;
+}
+.custom-criteria-img{
+	display: block;
+	width: 96px;
+	height: 96px;
+	margin: 0 auto;
+}
+@media (max-width: 800px){
+	.custom-section-ratings ul li .custom-textblock h3{
+		font-size: 5vw;
+		padding: 0;
+		margin: 0;
+	}
+	.custom-section-ratings ul li .custom-textblock p{
+		font-size: 3vw;
+		padding: 0;
+		margin: 0.5em auto;
+	}
+}
+@media (max-width: 800px) and (min-width: 601px){
+	.custom-section-ratings ul li img.custom-criteria-img{
+		width: 192px;
+		height: 192px;
+	}
+}
+@media (max-width: 600px){
+	.custom-section-ratings ul li img.custom-criteria-img{
+		width: 96px;
+		height: 96px;
+	}
+}
+/* INDIVIDUAL IMAGE FIXES */
+@media (min-width: 801px),
+       (max-width: 600px){
+	.custom-section-ratings ul li:nth-of-type(4) img.custom-criteria-img,
+	.custom-section-ratings ul li:nth-of-type(6) img.custom-criteria-img{
+		width: 124px!important;
+	}
+}
+@media (max-width: 800px) and (min-width: 601px){
+	.custom-section-ratings ul li:nth-of-type(4) img.custom-criteria-img,
+	.custom-section-ratings ul li:nth-of-type(6) img.custom-criteria-img{
+		width: 248px!important;
+	}
+} </style><link type="text/css" href="https://fonts.googleapis.com/css?family=Host%20Grotesk%3A400%2C400italic%2C700%2C700italic" rel="stylesheet"/><link type="text/css" href="https://fonts.googleapis.com/css?family=Jersey%2010%3A400%2C400italic%2C700%2C700italic" rel="stylesheet"/></head><body class="locale_en jam_layout_widget layout_widget no_theme_toggle responsive" data-host="itch.io" data-page_name="view_jam"><div class="gray jam_layout_header_widget header_widget base_widget small_logo" id="jam_layout_header_9219614"><a href="#maincontent" class="skip_to_main">Skip to main content</a><div class="primary_header"><h1 title="itch.io - indie game hosting marketplace" class="title"><a class="header_logo" href="/" title="itch.io - indie game hosting marketplace"><span class="visually_hidden">itch.io</span><img height="199" class="full_logo" alt="itch.io logo &amp; title" src="https://static.itch.io/images/logo-black-new.svg" width="775"/><img height="235" class="minimal_logo" alt="itch.io logo" src="https://static.itch.io/images/itchio-textless-black.svg" width="262"/></a></h1><div class="header_buttons"><a data-label="browse" href="/games" class="header_button browse_btn">Browse Games</a><a data-label="jams" href="/jams" class="header_button jams_btn">Game Jams</a><a data-label="developers" href="/developers" class="header_button developers_btn"><span aria-hidden="true" class="icon icon-upload"></span>Upload Game</a><a data-label="devlogs" href="/devlogs" class="header_button devlogs_btn">Developer Logs</a><a data-label="community.home" href="/community" class="header_button community.home_btn">Community</a></div><form action="/search" class="game_search"><input type="text" class="search_input" required="required" placeholder="Search for games, jams, tags or creators" name="q"/><button aria-label="Search" class="submit_btn"><svg height="18" stroke-linejoin="round" class="svgicon icon_search" stroke-linecap="round" role="img" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden stroke-width="3" version="1.1" width="18"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button></form><div class="user_panel_widget base_widget" id="user_panel_7969151"><a data-register_action="header" data-label="log_in" href="/login" class="panel_button">Log in</a><a data-register_action="header" data-label="register" href="/register" class="panel_button register_button">Register</a></div></div><div class="header_dropdown" data-target="browse"><a href="/games/store">Indie game store</a><a href="/games/free">Free games</a><a href="/games/fun">Fun games</a><a href="/games/tag-horror">Horror games</a><div class="divider"></div><a href="/tools">Game development</a><a href="/game-assets">Assets</a><a href="/comics">Comics</a><div class="divider"></div><a href="/sales">Sales</a><a href="/bundles">Bundles</a><div class="divider"></div><a href="/jobs">Jobs</a><div class="divider"></div><a href="/tags">Tags</a><a href="/game-development/engines">Game Engines</a></div></div><div class="jam_page_wrap" id="wrapper"><div class="view_jam_page view_jam_base_page page_widget base_widget view_jam_default before_start has_banner" id="view_jam_3763964"><div class="jam_banner_outer"><img src="https://img.itch.zone/aW1nLzI4Njc1NjI1LmdpZg==/original/7HFQoN.gif" class="jam_banner "/></div><div class="jam_body"><div class="jam_header_widget base_widget" id="jam_header_2773733"><div class="header_inner"><div class="header_columns"><div class="title_colum"><h1 class="jam_title_header"><a href="/jam/gbjam-14">GBJAM 14</a></h1><div class="jam_host_header">Hosted by <a href="https://polyducks.itch.io">Polyducks</a>, <a href="https://chasehunter.itch.io">chasehunter</a>, <a href="https://lafontainedl.itch.io">DL</a>, <a href="https://poltergasm.itch.io">poltergasm</a>, <a href="https://timconceivable.itch.io">timconceivable</a>, <a href="https://tatltuae.itch.io">tatltuae</a>, <a href="https://traslo.itch.io">Traslo</a>, <a href="https://arknano.itch.io">arknano</a>, <a href="https://batfeula.itch.io">batfeula</a> · <a href="https://bsky.app/hashtag/GBJAM">#GBJAM</a></div></div><div class="stats_container"><div class="stat_box"><div class="stat_value">4,168</div><div class="stat_label">Joined</div></div></div></div><div class="header_tabs"><a data-label="tab_view_jam" href="/jam/gbjam-14" class="header_tab active">Overview</a><div class="tab_group"><a href="/jam/gbjam-14/community" class="header_tab">Community</a><span class="community_activity">242</span></div></div></div></div><div class="submitter_outer"><div class="jam_submitter_widget base_widget before_start" id="jam_submitter_1306271"><div class="date_data">Submissions open from <span data-format="MMMM Do YYYY [at] h:mm A" class="date_format">2026-09-11 11:00:00</span> to <span data-format="MMMM Do YYYY [at] h:mm A" class="date_format">2026-09-21 11:00:00</span></div><div class="countdown"><span class="countdown_label">Starts in</span><div class="times"><div data-name="years" class="time_block"><div class="block_value"></div><div class="block_label">years</div></div><div data-name="months" class="time_block"><div class="block_value"></div><div class="block_label">months</div></div><div data-name="days" class="time_block"><div class="block_value"></div><div class="block_label">days</div></div><div data-name="hours" class="time_block"><div class="block_value"></div><div class="block_label">hours</div></div><div data-name="minutes" class="time_block"><div class="block_value"></div><div class="block_label">minutes</div></div><div data-name="seconds" class="time_block"><div class="block_value"></div><div class="block_label">seconds</div></div></div></div><div class="state_action"><button class="button fat submitter_button join_jam_btn" data-href="/jam/410538/join" data-method="post">Join jam</button></div></div></div><div class="jam_content user_formatted"><div class="custom-section custom-section-intro"><span class="custom-textblock">
+		<p>GBJAM is about making games inspired by the&nbsp;gameboy. The jam lasts ten days and includes two weekends.</p>
+	</span>
+</div>
+<div class="custom-section custom-section-theme">
+	<span class="custom-textblock">
+		<h2 class="custom-theme-title">The secondary theme is... </h2>
+		<p>To be announced on the first day of the jam</p><h2 class="custom-theme-title"><strong>
+		</strong></h2>
+		<p></p>
+	</span>
+</div>
+<div class="custom-section custom-section-rules">
+	<h2>Rules</h2>
+	<ul class="custom-rules">
+		<li><img class="custom-rules-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI4Njc0NDMxLmdpZg==/original/I%2FpKjm.gif" loading="lazy"><span class="custom-textblock"><p><br></p>
+<h3>Theme</h3>
+				<p>The themes are &quot;GameBoy&quot; and a second theme which will be announced on the first day of the jam.</p>
+			</span>
+		</li><li><img class="custom-rules-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI4Njc0NDM2LmdpZg==/original/jND1q4.gif" loading="lazy"><span class="custom-textblock"><p><br></p>
+<h3>160x144 Resolution</h3>
+				<p>
+					Keep the original GameBoy screen resolution of 160px x 144px. You are allowed to scale the viewport, but must keep the aspect ratio and square pixels.
+				</p>
+			</span>
+		</li>
+		
+		<li><img class="custom-rules-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI4Njc0NDUzLmdpZg==/original/SzXCLW.gif" loading="lazy"><span class="custom-textblock"><p><br></p>
+<h3>4 colors</h3>
+				<p>Color palettes must consist of a maximum of 4 colors. (Only 4 colors can be displayed on the screen at a time).</p>
+			</span>
+		</li>
+		<li><img class="custom-rules-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI4Njc0NDU4LmdpZg==/original/ruSzPX.gif" loading="lazy"><span class="custom-textblock"><p><br></p>
+<h3>Gameboy controls</h3>
+				<p>Use the same number of controls as the GameBoy (D-pad, A, B, select start). These can be represented by any keyboard keys you like.</p>
+			</span>
+		</li>
+		<li><img class="custom-rules-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI4Njc0NDYyLmdpZg==/original/LUcFhP.gif" loading="lazy"><span class="custom-textblock"><p><br></p>
+<h3>Making Things</h3>
+				<p>All music, code and assets (except font) must be created by you and your team during the jam period. You may use a pre-existing font.</p>
+			</span>
+		</li><li><span class="custom-textblock"><img class="custom-rules-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI4Njc0NDY2LmdpZg==/original/IUDrKo.gif" loading="lazy"><p><br></p>
+<h3>AI art/AI tools</h3>
+				<p>AI art, AI code generation and AI tools are <u>not allowed</u> to be used in this jam. This is to encourage creativity and thinking for yourself. If you need assistance, please team up with a human with a matching skillset - there are plenty on our <a href="https://discord.gg/eCmpApcjAY" rel="nofollow noopener" referrerpolicy="origin">Discord</a> and <a href="https://itch.io/jam/gbjam-14/community">itch forum</a>.</p></span></li></ul><p><span class="custom-rules-accuracy-textblock"></span></p>
+			
+			<div class="custom-section custom-section-rules"><div class="custom-rules-accuracy"><span class="custom-rules-accuracy-textblock">
+				<h3><img class="custom-criteria-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI5NTA4Mjk3LmdpZg==/original/Y4OAZO.gif" loading="lazy"></h3><h3>A note on Console Accuracy</h3><p></p>
+				<p>Aside from the above rules about colors and resolution, your game does not need to adhere to the restrictions of the gameboy, nor run on an actual gameboy.</p>
+				<p>Music and other audio is not restricted by the sounds the gameboy could make. If it&#x27;s not in the rules, feel free to experiment!</p>
+			</span></div></div>
+<div class="custom-section custom-section-ratings">
+	<h2>Ratings</h2>
+	<p>Only participants who submit a game can rate the other games. You must rate three random games before you can rate other games. The criteria for ratings this year are:</p>
+	<ul class="custom-criteria">
+		<li><img class="custom-criteria-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI4Njc0NDg5LmdpZg==/original/cik48V.gif" loading="lazy"><span class="custom-textblock"><p><br></p>
+<h3>Gameplay</h3>
+				<p>Is the gameplay fun and unique?</p>
+			</span>
+		</li>
+		<li><img class="custom-criteria-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI4Njc0NDk1LmdpZg==/original/ED8Bog.gif" loading="lazy"><span class="custom-textblock"><p><br></p>
+<h3>Graphics</h3>
+				<p>Points for style!</p>
+			</span>
+		</li>
+		<li><img class="custom-criteria-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI4Njc0NDk2LmdpZg==/original/SrJ8Mg.gif" loading="lazy"><span class="custom-textblock"><p><br></p>
+<h3>Soundtrack/SFX</h3>
+				<p>How does the game sound?</p>
+			</span>
+		</li>
+		<li><img class="custom-criteria-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI4Njc0NTAxLmdpZg==/original/73m5rX.gif" loading="lazy"><span class="custom-textblock"><p><br></p>
+<h3>Gameboy Soul</h3>
+				<p>Does the game feel like a gameboy game? Does it encapsulate the spirit of the gameboy?</p>
+			</span>
+		</li>
+		<li><img class="custom-criteria-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI4Njc0NTA1LmdpZg==/original/BRSP7n.gif" loading="lazy"><span class="custom-textblock"><p><br></p>
+<h3>Quirkiness</h3>
+				<p>Is the game unique, interesting or unusual? Does it do anything new or fresh?</p>
+			</span>
+		</li>
+		<li><img class="custom-criteria-img custom-pixel-img" src="https://img.itch.zone/aW1nLzI4Njc0NTA4LmdpZg==/original/bZMjw%2B.gif" loading="lazy"><span class="custom-textblock"><p><br></p>
+<h3>Secondary Theme Interpretation</h3>
+				<p>Does the game include the Secondary Theme well? Is it particularly original, true or inventive with the restriction?</p>
+			</span>
+		</li>
+	</ul>
+</div>
+<div class="custom-section custom-section-FAQ">
+	<h2>FAQs</h2>
+	<p>GBJAM is getting bigger every year and it is very difficult to answer the same question again and again. Please check to see if your question is answered here before asking in the <a href="https://discord.gg/eCmpApcjAY" target="_blank" rel="nofollow noopener" referrerpolicy="origin">Discord</a>.</p>
+	<details>
+		<summary>
+			<h3>Questions about joining GBJAM</h3>
+		</summary>
+		<details>
+			<summary>
+				Is the jam beginner friendly?
+			</summary>
+			<p>Yes! We welcome beginners every year and we are glad to be the first stepping stone on your gamedev journey.</p>
+		</details>
+		<details>
+			<summary>
+				Can I work in a team?
+			</summary>
+			<p>Yes, it is encouraged.</p>
+		</details>
+		<details>
+			<summary>
+				Where can I find a team?
+			</summary>
+			<p>You can join the Discord or make a post in the &quot;Looking for Team&quot; thread here on Itch.io</p>
+		</details>
+		<details>
+			<summary>
+				How big can teams be?
+			</summary>
+			<p>Teams can be as large or as small as you like, though the moderators reserve the right to remove entries that we believe have been created for the sole reason of vote manipulation.</p>
+		</details>
+		<details>
+			<summary>
+				I don&#x27;t have a team and I can&#x27;t do [thing]. Should I give up?
+			</summary>
+			<p>No. Some of the most interesting entries are from people who have been creative with their limitations. If you&#x27;re a musician, you can make a concept album for a crossword puzzle and submit a 160x144 png with a zip of mp3s. If you can&#x27;t make detailed pixel art, try making a game with a simple protagonist... or no protagonist. If you are an artist, submit a series of cool concept images for what your game might look like.</p>
+		</details>
+		<details>
+			<summary>
+				What engine or programming language can I use?
+			</summary>
+			<p>Any engine or programming language is allowed. Jam games which are playable on the website are played more often, so you might want to make sure your engine outputs HTML5, but it&#x27;s not a requirement.</p>
+		</details>
+		<details>
+			<summary>
+				Where can I get technical assistance?
+			</summary>
+			<p>
+				If you need technical assistance with your game engine of choice, you can try looking at documentation or joining that engine&#x27;s Discord or forum. For more general assistance with mathematics, you might try talking with other people in the GBJAM server, though we are not neccessarily a forum for technical help, you may find someone who has a solution for your issue.
+			</p>
+		</details>
+		<details>
+			<summary>
+				Can I submit multiple games to the jam?
+			</summary>
+			<p>Yes.</p>
+		</details>
+		<details>
+			<summary>
+				I have a question about the four color limitation
+			</summary>
+			<p>
+				You can only have four colors on the screen at once. Black is a color. The four colors include all shades, all tones, all hues. Gameboy does not support semi-opacity. The four colors apply to the whole screen, including sprites. You cannot have one four color palette for your background and another for sprites. This jam does not allow for a fifth experimental color like &#x27;default screen background&#x27;. Four is the total amount of colors you are allowed. You may use three or two. Five is right out.
+				<br><br>
+				The four colors you choose do not have to be the default palette you&#x27;ve found on Wikipedia. Lospec.com has loads of four color palettes you could try. You can even make your own.
+				<br><br>
+				You can change your palette mid-game so long as the new palette is four colors. You cannot change your colors mid-scan-line or any other sneaky trickery. If you have more than four colors on the screen at any one time it is not obeying the rules.
+				<br><br>
+				Yes, the gameboy had three colors plus transparency on sprites. No, this is not a restriction you need to obey in your competition entry.
+				<br><br>
+				You can change the palette with a light switch or when it&#x27;s night time so long as there are only four colors on the screen at one time.
+				Are there four colors on the screen? Yes? Congratulations, you abide by the rules. Are there five colors? Do two of the colors blend with opacity to make a new color? Wow buddy, looks like you&#x27;re in more than four color territory!
+				<br><br>
+				&#x27;Four colors maximum&#x27; means &#x27;four unique colors&#x27;. A color is a unit measured by its unique properties such as hue, saturation and value (or whatever other color system you subscribe to). You could have red, blue, green and yellow on your screen, but &#x27;a slightly darker shade of red&#x27; would count as a new color. You could not have fifty shades of blue and argue that you&#x27;re only using &#x27;one color&#x27;.
+				<br><br>
+				Yes, the illusion of a fifth color counts as a fifth color.
+				Do you quickly flip the palettes to make an extra color? Does it have an extra color on the screen? Welcome to five coloursville friendo, population: you.
+				<br><br>
+				No, dithering does not count as an illusion of a fifth color, as long as you are sticking to the 160x144 resolution.
+				<br><br>
+				If you want to argue how your five colors are special, do it in your game jam submission. I&#x27;m sure the reviewers (your fellow game jammers) will understand... 👀
+				<br><br>
+				If your next question starts with &quot;but what if&quot; the answer is no. No, you can&#x27;t do your special idea. It breaks the rules.
+				<br><br>
+				&quot;Can I use shaders?&quot;<br>
+				Does your game have four colors? Is the resolution 160x144? Does your game art adhere to the spirit of the jam - i.e. does it look and feel like it&#x27;s on a gameboy? Yes? Go ahead.
+				<br><br>
+				&quot;But-&quot;<br>
+				Then no.
+			</p>
+		</details>
+		<details>
+			<summary>
+				How should I organize my time during GBJAM?
+			</summary>
+			<p>It&#x27;s important to properly organize your time during any jam. It&#x27;s recommended that you spend a section planning your game and writing down ideas. Then refine those ideas to decide what you will make. Then make the ideas even smaller to make it easier to build. Then start drawing and coding and making music. You should aim to submit <em>something</em> before the last 24 hours of the jam, even if it&#x27;s unfinished. You can update the files right up until the deadline.</p>
+		</details>
+		<details>
+			<summary>
+				In the end, does this jam really matter, and is it super serious business?
+			</summary>
+			<p>No. This jam doesn&#x27;t matter, and it&#x27;s not super serious business. If you miss the deadline nothing bad happens. If your game sucks but it&#x27;s uploaded, you at least finished a game. If your team falls apart and you don&#x27;t get to submit anything, you have learned valuable lessons about game development. We encourage and celebrate failure because it means <em>you tried</em>. The ratings your game receives do not reflect the amount of effort you put into the game, how good your game is on an objective scale, or the benefits you gained from participating. Have fun.</p>
+		</details>
+		<details>
+			<summary>
+				What prizes are available to winners?
+			</summary>
+			<p>There are no prizes for this jam. What matters most is <em>trying your best</em>, <em>learning new lessons</em>, <em>creating something new</em> and <em>having a good time</em>.</p>
+		</details>
+		<details>
+			<summary>
+				Why is the GBJAM Discord so quiet/noisy?
+			</summary>
+			<p>When GBJAM is not active (outside of September), we put the Discord into hibernation. This means we have just one channel for asking questions about GBJAM, which is usually dormant. This is to reduce the required moderation and to keep the focus on the jam period.</p>
+			<p>When GBJAM is active (during the jam period), we open up the Discord and are a lot more active. This often results in hundreds or thousands of users participating in the jam commenting on what they&#x27;re doing.</p>
+		</details>
+		<details>
+			<summary>
+				Can I offer my skills for money?
+			</summary>
+			<p>
+				All work done as a jam participant should be done freely and voluntarily.
+			</p>
+		</details>
+		<details>
+			<summary>
+				Can I promote my Youtube/Vimeo/Social Media channel? Are videos/letsplays of participant&#x27;s work welcome?
+			</summary>
+			<p>
+				Historically, letsplay videos have been very popular in GBJAM and they preserve art and code which has long since been lost. It is also a great way of providing a service to GBJAM while promoting your social media channel. Having video of someone playing your game is really useful feedback for developers. We encourage you to post these directly in the comments of GBJAM entries and in specific channels on our Discord.
+			</p>
+			<p>
+				However, please note that promotion of material unrelated to the jam (i.e. videos about the Gameboy, game development in general, COD battle montages) are not welcome and you / your links will be removed from the discord as spam.
+			</p>
+			<p>
+				If in doubt, please ask one of the moderators.
+			</p>
+		</details>
+	</details>
+	<details>
+		<summary>
+			<h3>Questions about GBJAM&#x27;s theme</h3>
+		</summary>
+		<details>
+			<summary>
+				Is there a theme?
+			</summary>
+			<p>Yes, there are two themes - one is &quot;Gameboy&quot;, the other theme will be announced on the first day of the jam.</p>
+		</details>
+		<details>
+			<summary>
+				How will we know what the second theme is?
+			</summary>
+			<p>The theme will be announced on the first day of the jam, posted at the top of this page. It&#x27;ll also be sent out via email to everyone who has joined the jam</p>
+		</details>
+	</details>
+	<details>
+		<summary>
+			<h3>Questions about GBJAM entries</h3>
+		</summary>
+		<details>
+			<summary>
+				What are the rules on audio?
+			</summary>
+			<p>All audio must be made during the jam period. There are no specific rules on style, but making it feel like gameboy sound is encouraged.</p>
+		</details>
+		<details>
+			<summary>
+				Can I use a resolution which isn&#x27;t 160x144?
+			</summary>
+			<p>You may use a smaller resolution if your game engine of choice does not produce 160x144. The play area should fit within a gameboy screen. Black bars or &#x27;super gameboy&#x27; frames around the outside of the gameplay area are fine.</p>
+		</details>
+		<details>
+			<summary>
+				Can I upscale my game?
+			</summary>
+			<p>
+				Yes. As long as the native resolution is 160x144, you can upscale it. Remember to keep the pixels sharp and upscale by whole numbers only. i.e. 2x will result in 320x288, 3x will result in 480x432 etc etc.
+			</p>
+		</details>
+		<details>
+			<summary>
+				What can I work on before the jam?
+			</summary>
+			<p>You are allowed to set up your tools and your game engine. Tools include: palettes, fonts, tracker instruments and code libraries. Anything that is specific to a particular idea should wait until the jam starts.</p>
+		</details>
+		<details>
+			<summary>
+				Can I submit an NSFW game?
+			</summary>
+			<p>No, sorry. The jam is intended to be beginner friendly and open to as many people as possible. Keep it PG, and don&#x27;t be excessive. Please exercise moderation so we don&#x27;t have to - our moral compass is capricious, whimsical and final.</p>
+		</details>
+		<details>
+			<summary>
+				I have a question about the four color limitation
+			</summary>
+			<p>
+				You can only have four colors on the screen at once. Black is a color. The four colors include all shades, all tones, all hues. Gameboy does not support semi-opacity. The four colors apply to the whole screen, including sprites. You cannot have one four color palette for your background and another for sprites. This jam does not allow for a fifth experimental color like &#x27;default screen background&#x27;. Four is the total amount of colors you are allowed. You may use three or two. Five is right out.
+				<br><br>
+				The four colors you choose do not have to be the default palette you&#x27;ve found on Wikipedia. Lospec.com has loads of four color palettes you could try. You can even make your own.
+				<br><br>
+				You can change your palette mid-game so long as the new palette is four colors. You cannot change your colors mid-scan-line or any other sneaky trickery. If you have more than four colors on the screen at any one time it is not obeying the rules.
+				<br><br>
+				Yes, the gameboy had three colors plus transparency on sprites. No, this is not a restriction you need to obey in your competition entry.
+				<br><br>
+				You can change the palette with a light switch or when it&#x27;s night time so long as there are only four colors on the screen at one time.
+				Are there four colors on the screen? Yes? Congratulations, you abide by the rules. Are there five colors? Do two of the colors blend with opacity to make a new color? Wow buddy, looks like you&#x27;re in more than four color territory!
+				<br><br>
+				&#x27;Four colors maximum&#x27; means &#x27;four unique colors&#x27;. A color is a unit measured by its unique properties such as hue, saturation and value (or whatever other color system you subscribe to). You could have red, blue, green and yellow on your screen, but &#x27;a slightly darker shade of red&#x27; would count as a new color. You could not have fifty shades of blue and argue that you&#x27;re only using &#x27;one color&#x27;.
+				<br><br>
+				Yes, the illusion of a fifth color counts as a fifth color.
+				Do you quickly flip the palettes to make an extra color? Does it have an extra color on the screen? Welcome to five coloursville friendo, population: you.
+				<br><br>
+				No, dithering does not count as an illusion of a fifth color, as long as you are sticking to the 160x144 resolution.
+				<br><br>
+				If you want to argue how your five colors are special, do it in your game jam submission. I&#x27;m sure the reviewers (your fellow game jammers) will understand... 👀
+				<br><br>
+				If your next question starts with &quot;but what if&quot; the answer is no. No, you can&#x27;t do your special idea. It breaks the rules.
+				<br><br>
+				&quot;Can I use shaders?&quot;<br>
+				Does your game have four colors? Is the resolution 160x144? Does your game art adhere to the spirit of the jam - i.e. does it look and feel like it&#x27;s on a gameboy? Yes? Go ahead.
+				<br><br>
+				&quot;But-&quot;<br>
+				Then no.
+			</p>
+		</details>
+		<details>
+			<summary>
+				Can I use public domain assets?
+			</summary>
+			<p>No. Music, art and programming must be provided by the people entering the jam. This is to encourage teaming up with other users to make the best game you can!</p>
+		</details>
+		<details>
+			<summary>
+				Can I use a public domain font?
+			</summary>
+			<p>Yes. You do not have to make your own font for this jam.</p>
+		</details>
+		<details>
+			<summary>
+				Why can&#x27;t I use AI generated creative materials?
+			</summary>
+			<p>
+				GBJAM is an event focused on personal improvement, creativity and teamwork. If you are unable to create something, just use your best effort to make a placeholder, or ask someone to join you in your jam entry.
+			</p>
+			<p>
+				AI generated materials are often very average in terms of creative freshness. It is far more interesting to see your personal interpretation and world view, even if it&#x27;s realised in crayon.
+			</p>
+		</details>
+		<details>
+			<summary>
+				Why can&#x27;t I use AI generated code?
+			</summary>
+			<p>
+				While we accept that AI is integrated into some code bases in the form of autocomplete and autocreation, it may also introduce bugs and structures which the coder doesn&#x27;t understand. So as to improve the strength of the coder, and in the same way that we don&#x27;t allow third party game code, we encourage coders to write their own code and improve themselves and their understanding.
+			</p>
+		</details>
+		<details>
+			<summary>
+				Why can&#x27;t I use AI... (whatever)?
+			</summary>
+			<p>
+				This game jam is for humans, the expression of creativity and the development of the self. The purpose of generative AIs and LLMs are to replace or supplement human creativity and thinking in a way that the organiser feels is against the spirit of the jam. Please don&#x27;t come to the Discord to argue why your use of AI should be allowed, you will be removed.
+			</p>
+		</details>
+		<details>
+			<summary>
+				Can my entry be a remake or a demake of an existing game?
+			</summary>
+			<p>No, games must be original and not use existing intellectual property.</p>
+		</details>
+		<details>
+			<summary>
+				Can I update or submit my game after the deadline?
+			</summary>
+			<p>No, once submissions are closed file uploads are locked until the voting period ends. For the purposes of fairness, we do not accept late entries.</p>
+			<p>However, once the voting period ends, feel free to develop your game into a fully playable thing! It&#x27;s recommended you submit this to itch.io as a new project or to preserve your jam entry version - both for SEO purposes and to preserve the history of your work.</p>
+		</details>
+		<details>
+			<summary>
+				Who owns the rights to my game?
+			</summary>
+			<p>You and your team own the rights to your game. The moderators of GBJAM do not lay any claim to your work and you&#x27;re free to do with it as you like.</p>
+		</details>
+		<details>
+			<summary>
+				I have an idea for a game, can I make it during GBJAM?
+			</summary>
+			<p>Why wait until GBJAM? Make your game now!</p>
+			<p>If your game fits the themes of GBJAM, you can make it then too.</p>
+		</details>
+	</details>
+	<details>
+		<summary>
+			<h3>General questions about GBJAM</h3>
+		</summary>
+		<details>
+			<summary>
+				I have a question about the four color limitation
+			</summary>
+			<p>
+				You can only have four colors on the screen at once. Black is a color. The four colors include all shades, all tones, all hues. Gameboy does not support semi-opacity. The four colors apply to the whole screen, including sprites. You cannot have one four color palette for your background and another for sprites. This jam does not allow for a fifth experimental color like &#x27;default screen background&#x27;. Four is the total amount of colors you are allowed. You may use three or two. Five is right out.
+				<br><br>
+				The four colors you choose do not have to be the default palette you&#x27;ve found on Wikipedia. Lospec.com has loads of four color palettes you could try. You can even make your own.
+				<br><br>
+				You can change your palette mid-game so long as the new palette is four colors. You cannot change your colors mid-scan-line or any other sneaky trickery. If you have more than four colors on the screen at any one time it is not obeying the rules.
+				<br><br>
+				Yes, the gameboy had three colors plus transparency on sprites. No, this is not a restriction you need to obey in your competition entry.
+				<br><br>
+				You can change the palette with a light switch or when it&#x27;s night time so long as there are only four colors on the screen at one time.
+				Are there four colors on the screen? Yes? Congratulations, you abide by the rules. Are there five colors? Do two of the colors blend with opacity to make a new color? Wow buddy, looks like you&#x27;re in more than four color territory!
+				<br><br>
+				&#x27;Four colors maximum&#x27; means &#x27;four unique colors&#x27;. A color is a unit measured by its unique properties such as hue, saturation and value (or whatever other color system you subscribe to). You could have red, blue, green and yellow on your screen, but &#x27;a slightly darker shade of red&#x27; would count as a new color. You could not have fifty shades of blue and argue that you&#x27;re only using &#x27;one color&#x27;.
+				<br><br>
+				Yes, the illusion of a fifth color counts as a fifth color.
+				Do you quickly flip the palettes to make an extra color? Does it have an extra color on the screen? Welcome to five coloursville friendo, population: you.
+				<br><br>
+				No, dithering does not count as an illusion of a fifth color, as long as you are sticking to the 160x144 resolution.
+				<br><br>
+				If you want to argue how your five colors are special, do it in your game jam submission. I&#x27;m sure the reviewers (your fellow game jammers) will understand... 👀
+				<br><br>
+				If your next question starts with &quot;but what if&quot; the answer is no. No, you can&#x27;t do your special idea. It breaks the rules.
+				<br><br>
+				&quot;Can I use shaders?&quot;<br>
+				Does your game have four colors? Is the resolution 160x144? Does your game art adhere to the spirit of the jam - i.e. does it look and feel like it&#x27;s on a gameboy? Yes? Go ahead.
+				<br><br>
+				&quot;But-&quot;<br>
+				Then no.
+			</p>
+		</details>
+		<details>
+			<summary>
+				Why are the rules not hardcore and technical?
+			</summary>
+			<p>GBJAM is for new and old developers alike, celebrating the artistic aesthetic of using four colors in a specific aspect ratio. We are more interested in encouraging an interest in the platform than requiring entrants to code assembly or making functional ROMs (though we enjoy seeing real ROMs). As such, the restrictions are arbitrary to encourage creativity, and not a definition of actual gameboy functionality.</p>
+			<p>The gameboy aesthetic we are trying to recreate is that of running an original Gameboy Game Pak on a Gameboy Color. We are aware this is a niche aesthetic, but it is <strong>cool</strong>.</p>
+		</details>
+		<details>
+	<summary>
+		Who makes GBJAM possible?
+	</summary>
+	<p>GBJAM is made possible by the following people:</p>
+	<ul class="custom-people-list">
+		<li>GBJAM page artists:
+			<ul>
+				<li><a href="https://polyducks.co.uk" rel="nofollow noopener" referrerpolicy="origin">Polyducks</a> (art direction, CSS/HTML, copy writing, minor animation and edits)</li>
+				<li><a href="https://chasehunter.dev" rel="nofollow noopener" referrerpolicy="origin">chasehunter</a> (art direction, CSS, HTML and minor edits)</li>
+				<li><a href="https://batfeula.neocities.org/" rel="nofollow noopener" referrerpolicy="origin">Batfeula</a> (character concept/design/illustration)</li>
+				<li><a href="https://lafontainedl.carrd.co/" rel="nofollow noopener" referrerpolicy="origin">DL</a> (animation, additional art details)</li>
+			</ul>
+		</li>
+		<li>GBJAM moderators:
+			<ul>
+				<li><a href="https://traslo.itch.io/">Traslo</a></li>
+				<li><a href="https://timconceivable.itch.io/">timconceivable!</a></li>
+				<li><a href="https://arknano.itch.io/">Graf</a></li>
+				<li><a href="https://tatltuae.itch.io">tatltuae</a></li>
+				<li><a href="https://poltergasm.itch.io/">poltergasm</a></li>
+				<li><a href="https://polyducks.co.uk" rel="nofollow noopener" referrerpolicy="origin">Polyducks</a></li>
+			</ul>
+		</li>
+		<li>GBJAM directors:
+			<ul>
+				<li><a href="https://polyducks.co.uk" rel="nofollow noopener" referrerpolicy="origin">Polyducks</a> (GBJAM 7 - GBJAM 14)</li>
+				<li><a href="https://chasehunter.dev" rel="nofollow noopener" referrerpolicy="origin">chasehunter</a> (GBJAM 1 - GBJAM 8, GBJAM 14 - current)</li>
+			</ul>
+		</li>
+	</ul>
+</details>
+	</details>
+</div>
+<div class="custom-section custom-section-extras">
+	<h2>Extras</h2>
+	<p>Please feel free to use this optional official splash screen in your game jam entry! (Right click to save)</p>
+	<p>You can recolour the splash with your own four-color palette.</p>
+	<div class="custom-splash-container">
+		<img src="https://img.itch.zone/aW1nLzI4NjYyNzg5LnBuZw==/original/4aFavv.png" loading="lazy"><img src="https://img.itch.zone/aW1nLzI4NjYyNzgxLnBuZw==/original/pGFXHP.png" loading="lazy"><img src="https://img.itch.zone/aW1nLzI4NjYyNzQ3LnBuZw==/original/LipDLr.png" loading="lazy"><img src="https://img.itch.zone/aW1nLzI4NjYyNzQ4LnBuZw==/original/dctWlf.png" loading="lazy"><img src="https://img.itch.zone/aW1nLzI4NjYyNzE1LnBuZw==/original/RUraoT.png" loading="lazy"><img src="https://img.itch.zone/aW1nLzI5MDUxNDQ4LnBuZw==/original/7nKhkD.png" loading="lazy"><img src="https://img.itch.zone/aW1nLzI4NjYyNjY1LnBuZw==/original/wqH6Jv.png" loading="lazy"><img src="https://img.itch.zone/aW1nLzI4NjYyNjU1LnBuZw==/original/IJQ5DX.png" loading="lazy"><img src="https://img.itch.zone/aW1nLzI4NjYyNjU5LnBuZw==/original/po%2Fgae.png" loading="lazy"><img src="https://img.itch.zone/aW1nLzI4NjYyNjQ3LnBuZw==/original/x3o28H.png" loading="lazy"><img src="https://img.itch.zone/aW1nLzI4Njc0MzgwLnBuZw==/original/Ilkzjf.png" loading="lazy"><img src="https://img.itch.zone/aW1nLzI4Njc0MzkzLnBuZw==/original/0sJgvZ.png" loading="lazy"></div>
+</div>
+<div class="custom-credits">
+<p><em>GBJAM is hosted by: <a href="https://chasehunter.dev" rel="nofollow noopener" referrerpolicy="origin">chasehunter</a> GBJAM 1-8, <a href="https://polyducks.co.uk" rel="nofollow noopener" referrerpolicy="origin">Polyducks</a> GBJAM 7-14, <a href="https://chasehunter.dev" rel="nofollow noopener" referrerpolicy="origin">chasehunter</a> GBJAM 14 - current</em></p>
+	<p><em>GBJAM would not be possible without the work of the jam moderators:
+		<a href="https://traslo.itch.io/">Traslo</a>,
+		<a href="https://timconceivable.itch.io/">timconceivable!</a>,
+		<a href="https://arknano.itch.io/">Graf</a>,
+		<a href="https://tatltuae.itch.io">tatltuae</a>,
+		<a href="https://poltergasm.itch.io/">poltergasm</a>,&nbsp;<a href="https://polyducks.co.uk" rel="nofollow noopener" referrerpolicy="origin">Polyducks</a>, &amp; </em><a href="https://www.chasehunter.dev/" rel="nofollow noopener" referrerpolicy="origin"><em>chasehunter</em></a></p><p><em>This page has been brought to you in collaboration with <a href="https://www.chasehunter.dev/" rel="nofollow noopener" referrerpolicy="origin">chasehunter</a> (art direction),&nbsp;<a href="https://polyducks.co.uk/" rel="nofollow noopener" referrerpolicy="origin">Polyducks</a> (art direction), <a href="https://batfeula.neocities.org/" rel="nofollow noopener" referrerpolicy="origin">Batfeula</a> (illustration) and <a href="https://lafontainedl.carrd.co/" rel="nofollow noopener" referrerpolicy="origin">DL</a> (animation).</em></p>
+	</div></div></div></div><script type="text/template" id="add_game_to_jam_lightbox_tpl"><div role="dialog" id="add_game_to_jam_lightbox_4198271" tabIndex="-1" class="add_game_to_jam_lightbox_widget lightbox_widget base_widget  force_login has_fields lightbox"><button class="close_button"><svg height="18" stroke-linejoin="round" class="svgicon icon_cross2" stroke-linecap="round" role="img" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden stroke-width="2" version="1.1" width="18"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button><h2>Log in to continue</h2><p>This jam is using <a target="_blank" href="http://itch.io">itch.io</a> to host entries. You&#039;ll need to register or log in on
+      itch.io in order to <span class="on_submit">submit your game</span><span class="on_join">join this jam</span>.</p><p class="on_submit">After signing in you can create a new game on itch.io then
+      return here and click the <em>submit game</em> button again to enter your game.</p><p><a data-register_action="jam_submit" href="/login?return_to=https%3A%2F%2Fitch.io%2Fjam%2Fgbjam-14&amp;intent=jam_submit" class="button">Log in</a><span class="or_split"> or </span><a data-register_action="jam_submit" href="/register?return_to=https%3A%2F%2Fitch.io%2Fjam%2Fgbjam-14&amp;intent=jam_submit" class="button">Register</a></p></div></script></div></div><script type="text/template" id="loading_lightbox_tpl"><div aria-live="polite" class="lightbox loading_lightbox"><div class="loader_outer"><div class="loader_label">Loading</div><div class="loader_bar"><div class="loader_bar_slider"></div></div></div></div></script><script type="text/javascript">new I.ViewJam('#view_jam_3763964', {"voting_end_date":"2026-10-05 11:00:00","id":410538,"start_date":"2026-09-11 11:00:00","end_date":"2026-09-21 11:00:00"});init_JamLayoutHeader('#jam_layout_header_9219614', {"autocomplete_props":{"i18n":{"search":"Search","search_placeholder":"Search for games, jams, tags or creators"},"ca_source":25,"ca_types":{"browse_facet":8,"bundle":6,"featured_tag":7,"jam":4,"game":1},"autocomplete_url":"\/autocomplete","search_url":"\/search"}});
+I.setup_page();</script></body></html>

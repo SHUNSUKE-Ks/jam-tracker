@@ -1,0 +1,7 @@
+{
+  "_説明": "どのジャムを拾うか。ここだけ書き換えれば選び方が変わる",
+  "startedWithinDays": 10,
+  "onlyOpen": true,
+  "minJoined": 0,
+  "max": 10
+}

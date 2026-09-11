@@ -1,0 +1,17 @@
+{
+  "name": "jam-tracker",
+  "private": true,
+  "type": "module",
+  "description": "itch.io のジャム情報を集めて data/jams.json に保存する。GitHub Actions が毎日回す",
+  "scripts": {
+    "scrape": "node scripts/scrape.mjs",
+    "try": "node scripts/scrape.mjs --dry",
+    "verify": "node scripts/verify.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
