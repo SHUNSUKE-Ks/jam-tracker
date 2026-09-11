@@ -38,7 +38,8 @@ export function parseList(html) {
   });
 }
 
-const TBA = /\b(tba|tbd|tbc|revealed?|announced?|announcement|will be|to be|secret|hidden|surprise|up to you)\b|\.\.\.|\?/i;
+const TBA = /\b(tba|tbd|tbc|revealed?|announced?|announcement|will be|to be|secret|hidden|surprise|up to you)\b|\.\.\./i;
+const NOT_THEME = /\btheme\b|how well|adhere|^(required|optional|none|n\/a|yes|no)$/i; // 採点項目や「テーマ: 必須」を拾わない
 const THEME_LINE = /^(?:the\s+)?(?:(?:jam|main|secondary|official)\s+)?theme\s*(?:is|:|-|–|—)\s*(.+)$/i;
 
 // 詳細ページ: 説明文と、書いてあればテーマを拾う
@@ -49,7 +50,7 @@ export function parseDetail(html) {
   body.find('p,li,h1,h2,h3,h4,div').each((_, el) => { $(el).append('\n'); });
   const text = body.text().replace(/[ \t]+/g, ' ').replace(/\n\s*\n+/g, '\n').trim();
   const entries = Number($('.stat_box a[href$="/entries"] .stat_value').first().text().replace(/,/g, '')) || null;
-  return { description: text ? text.slice(0, 2000) : null, theme: findTheme(text), entries };
+  return { description: text ? text.slice(0, 4000) : null, theme: findTheme(text), entries };
 }
 
 // テーマは説明文からの推定。「Theme: 〇〇」のような短い行だけを見る。未発表・曖昧なら null
@@ -62,6 +63,7 @@ export function findTheme(text) {
     if (!m) continue;
     if (TBA.test(line)) return null;
     const t = m[1].replace(/^[\s:"“'‘]+|[\s"”'’.!]+$/g, '').trim();
+    if (NOT_THEME.test(t)) return null;
     return t.length >= 2 && t.length <= 60 ? t : null;
   }
   return null;

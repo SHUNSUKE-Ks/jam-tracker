@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { parseList, parseDetail, findTheme } from '../src/itch.mjs';
 import { load, merge } from '../src/store.mjs';
-import { pick } from '../src/pick.mjs';
+import { candidates, applyTags, matchTags } from '../src/pick.mjs';
 
 const fx = (f) => readFileSync(new URL(`../tests/fixtures/${f}`, import.meta.url), 'utf8');
 let n = 0;
@@ -43,6 +43,8 @@ check('テーマ抽出', () => {
   assert.equal(findTheme('Theme: TBC, at the start of the jam'), null);
   assert.equal(findTheme('Theme: completely up to you'), null);
   assert.equal(findTheme('Theme - How well did the game follow the theme?'), null);
+  assert.equal(findTheme('Theme: Freedom, but at what cost?'), 'Freedom, but at what cost?');
+  assert.equal(findTheme('Theme: required'), null);
   assert.equal(findTheme('The theme is a suggestion to inspire creativity and give us all something to work with'), null);
   assert.equal(findTheme('We keep the theme secret until the start. The theme is announced at the start to ensure no one cheats by starting their game early'), null);
 });
@@ -60,19 +62,49 @@ check('突き合わせ: 前回分を残し、初見日は変えない', () => {
   assert.ok(!got['itch:gone'], '投票終了から60日を過ぎたものは消える');
 });
 
-check('選び方: 過去10日に開始・受付中・参加の多い順・最大件数', () => {
+check('候補: 過去10日に開始・締切まで10日以上・参加の多い順', () => {
   const j = (id, start, end, joined) => ({ id, start_time: start, end_time: end, joined });
   const listed = [
     j('old', '2026-08-20T00:00:00Z', '2026-09-30T00:00:00Z', 999), // 10日より前に開始
     j('future', '2026-09-15T00:00:00Z', '2026-09-30T00:00:00Z', 999), // まだ始まっていない
-    j('closed', '2026-09-05T00:00:00Z', '2026-09-10T00:00:00Z', 999), // 締切済み
-    j('a', '2026-09-05T00:00:00Z', '2026-09-20T00:00:00Z', 10),
-    j('b', '2026-09-08T00:00:00Z', '2026-09-20T00:00:00Z', 300),
-    j('c', '2026-09-10T00:00:00Z', '2026-09-20T00:00:00Z', 50),
+    j('soon', '2026-09-05T00:00:00Z', '2026-09-15T00:00:00Z', 999), // 残り4日
+    j('a', '2026-09-05T00:00:00Z', '2026-09-25T00:00:00Z', 10),
+    j('b', '2026-09-08T00:00:00Z', '2026-09-25T00:00:00Z', 300),
+    j('c', '2026-09-10T00:00:00Z', '2026-09-21T00:00:00Z', 50), // 残りちょうど10日
   ];
-  const cfg = { startedWithinDays: 10, onlyOpen: true, minJoined: 0, max: 2 };
-  assert.deepEqual(pick(listed, cfg, '2026-09-11T00:00:00Z').map((x) => x.id), ['b', 'c']);
-  assert.deepEqual(pick(listed, { ...cfg, max: 10, minJoined: 20 }, '2026-09-11T00:00:00Z').map((x) => x.id), ['b', 'c']);
+  const cfg = { startedWithinDays: 10, minDaysLeft: 10, minJoined: 0, maxCandidates: 25 };
+  assert.deepEqual(candidates(listed, cfg, '2026-09-11T00:00:00Z').map((x) => x.id), ['b', 'c', 'a']);
+  assert.deepEqual(candidates(listed, { ...cfg, minJoined: 20, maxCandidates: 1 }, '2026-09-11T00:00:00Z').map((x) => x.id), ['b']);
+});
+
+check('タグ: 好きは先に、嫌いは外す。語単位で当てる', () => {
+  const tags = {
+    like: [{ name: 'ブラウザ', words: ['browser'] }],
+    dislike: [{ name: 'AI禁止', words: ['no ai'] }, { name: '音楽', words: ['noise jam'] }],
+  };
+  assert.deepEqual(matchTags('There is no aim here', tags.dislike), []); // "no ai" は "no aim" に当たらない
+  assert.deepEqual(matchTags('Rules: No AI.', tags.dislike), ['AI禁止']);
+
+  // 実際の config.json の AI禁止（2026-09-11 に語だけでは取りこぼした言い回し）
+  const cfg = JSON.parse(readFileSync(new URL('../config.json', import.meta.url), 'utf8'));
+  const ai = cfg.tags.dislike.filter((t) => t.name === 'AI禁止');
+  for (const s of [
+    '7) AI-generated assets are not allowed.',
+    'The use of AI for games in this jam is not allowed.',
+    '• AI-generated assets are not permitted',
+    'No AI-generated content.',
+  ]) assert.deepEqual(matchTags(s, ai), ['AI禁止'], s);
+  assert.deepEqual(matchTags('You are allowed to generate assets and ideas with AI, but you must declare them.', ai), []);
+  const jams = [
+    { id: 'big', title: 'Big Jam', joined: 900, description: 'Rules: NO AI!' },
+    { id: 'mid', title: 'Mid Jam', joined: 500, description: 'make a game' },
+    { id: 'web', title: 'Web Jam', joined: 100, description: 'Browser builds recommended' },
+    { id: 'noise', title: 'NOISE JAM 4', joined: 800, description: null },
+  ];
+  const { picked, excluded } = applyTags(jams, tags, 10);
+  assert.deepEqual(picked.map((x) => x.id), ['web', 'mid']);
+  assert.deepEqual(picked[0].tags, ['ブラウザ']);
+  assert.deepEqual(excluded.map((x) => [x.id, x.excluded_by]), [['big', ['AI禁止']], ['noise', ['音楽']]]);
 });
 
 check('data/jams.json の形', () => {
