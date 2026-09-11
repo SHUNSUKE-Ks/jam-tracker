@@ -98,6 +98,15 @@ check('タグ: 好きは先に、嫌いは外す。語単位で当てる', () =>
     'No AI-generated content.',
   ]) assert.deepEqual(matchTags(s, ai), ['AI禁止'], s);
   assert.deepEqual(matchTags('You are allowed to generate assets and ideas with AI, but you must declare them.', ai), []);
+
+  // 現地開催・説明文なし（2026-09-11 に手で外した Literária / uOGDC）
+  const dislike = cfg.tags.dislike;
+  const lit = { id: 'lit', title: '1a Game Jam Literária', joined: 9, description: 'contarão com transmissão ao vivo e espaço presencial.' + ' x'.repeat(40) };
+  const empty = { id: 'uogdc', title: 'uOGDC Fall Jam 2026', joined: 4, description: null };
+  const ok = { id: 'ok', title: 'Online Jam', joined: 1, description: 'Make a game online from anywhere. '.repeat(3) };
+  const r = applyTags([lit, empty, ok], { like: [], dislike }, 10);
+  assert.deepEqual(r.picked.map((x) => x.id), ['ok']);
+  assert.deepEqual(r.excluded.map((x) => [x.id, x.excluded_by]), [['lit', ['現地開催']], ['uogdc', ['説明文なし']]]);
   const jams = [
     { id: 'big', title: 'Big Jam', joined: 900, description: 'Rules: NO AI!' },
     { id: 'mid', title: 'Mid Jam', joined: 500, description: 'make a game' },

@@ -14,7 +14,9 @@
         "name": "AI禁止",
         "words": ["no ai", "no generative ai", "no ai-generated"],
         "patterns": ["\\b(generative )?ai\\b[^.\\n]{0,80}\\b(not allowed|not permitted|prohibited|banned|forbidden|disallowed)\\b"]
-      }
+      },
+      { "name": "現地開催", "words": ["in-person", "in person event", "on-site", "onsite", "presencial", "presencialmente"] },
+      { "name": "説明文なし", "maxChars": 50 }
     ]
   }
 }
