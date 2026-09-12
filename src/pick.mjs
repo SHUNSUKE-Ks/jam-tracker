@@ -1,22 +1,24 @@
-// 拾うジャムを選ぶ。条件は config.json
+// 拾うジャムを選ぶ。条件は config.json の lists[]
 // 1. 日付で候補を絞る（詳細を読む前）  2. 詳細を読んだ後にタグで並べ替え・除外する
 
-// startedWithinDays: 過去N日以内に開始 / minDaysLeft: 締切まで残りN日以上 / minJoined: 参加者数の下限
+// startedWithinDays: 過去N日以内に開始 / startsWithinDays: これからN日以内に始まるものも入れる
+// minDaysLeft: 締切まで残りN日以上 / minJoined: 参加者数の下限
 export function candidates(listed, cfg, nowIso) {
   const now = Date.parse(nowIso);
   const since = now - cfg.startedWithinDays * 864e5;
+  const until = now + (cfg.startsWithinDays ?? 0) * 864e5;
   return listed
     .filter((j) => {
       const start = Date.parse(j.start_time);
       const left = (Date.parse(j.end_time) - now) / 864e5;
-      return start >= since && start <= now && left >= cfg.minDaysLeft && j.joined >= cfg.minJoined;
+      return start >= since && start <= until && left >= cfg.minDaysLeft && j.joined >= (cfg.minJoined ?? 0);
     })
-    .sort((a, b) => b.joined - a.joined)
-    .slice(0, cfg.maxCandidates);
+    .sort((a, b) => b.joined - a.joined);
 }
 
 const escape = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const hit = (text, word) => new RegExp(`(^|[^a-z0-9])${escape(word)}([^a-z0-9]|$)`, 'i').test(text);
+
 // words: 語単位で当てる / patterns: 正規表現（言い回しが揺れるもの用） / maxChars: 説明文がこの字数未満なら当たる
 export const matchTags = (text, tags, description = text) =>
   tags

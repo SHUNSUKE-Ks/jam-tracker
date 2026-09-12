@@ -1,22 +1,52 @@
 {
-  "_説明": "どのジャムを拾うか。ここだけ書き換えれば選び方が変わる。tags は題名と説明文に当てる。words は語単位（大文字小文字を無視）、patterns は正規表現",
-  "_好きタグの例": { "name": "パズル", "words": ["puzzle"] },
-  "startedWithinDays": 10,
-  "minDaysLeft": 10,
-  "minJoined": 0,
-  "max": 10,
-  "maxCandidates": 25,
-  "tags": {
-    "like": [],
-    "dislike": [
-      { "name": "音楽", "words": ["composing jam", "composition jam", "music jam", "soundtrack jam", "noise jam", "album"] },
-      {
-        "name": "AI禁止",
-        "words": ["no ai", "no generative ai", "no ai-generated"],
-        "patterns": ["\\b(generative )?ai\\b[^.\\n]{0,80}\\b(not allowed|not permitted|prohibited|banned|forbidden|disallowed)\\b"]
-      },
-      { "name": "現地開催", "words": ["in-person", "in person event", "on-site", "onsite", "presencial", "presencialmente"] },
-      { "name": "説明文なし", "maxChars": 50 }
-    ]
-  }
+  "_説明": "開発環境ごとに1つのリスト。lists に足せばリストが増える。tags は題名と説明文に当てる（words=語、patterns=正規表現、maxChars=説明文がその字数未満なら当たる）",
+  "maxCandidates": 80,
+  "lists": [
+    {
+      "name": "html",
+      "label": "HTML（SolidJS・ブラウザ）",
+      "file": "data/jams_html.json",
+      "pins": ["itch:kaidan-nights", "itch:oktrollberfest-2026"],
+      "startedWithinDays": 10,
+      "startsWithinDays": 0,
+      "minDaysLeft": 10,
+      "minJoined": 0,
+      "max": 10,
+      "tags": {
+        "like": [],
+        "dislike": [
+          { "name": "音楽", "words": ["composing jam", "composition jam", "music jam", "soundtrack jam", "noise jam", "album"] },
+          { "name": "AI禁止", "words": ["no ai", "no generative ai", "no ai-generated"], "patterns": ["\\b(generative )?ai\\b[^.\\n]{0,80}\\b(not allowed|not permitted|prohibited|banned|forbidden|disallowed)\\b"] },
+          { "name": "現地開催", "words": ["in-person", "in person event", "on-site", "onsite", "presencial", "presencialmente"] },
+          { "name": "説明文なし", "maxChars": 50 }
+        ]
+      }
+    },
+    {
+      "name": "unity",
+      "label": "Unity（2D・システム重視）",
+      "file": "data/jams_unity.json",
+      "startedWithinDays": 30,
+      "startsWithinDays": 30,
+      "minDaysLeft": 7,
+      "minJoined": 0,
+      "max": 20,
+      "tags": {
+        "like": [
+          { "name": "Unity", "words": ["unity", "any engine", "any game engine"] },
+          { "name": "2D", "words": ["2d", "pixel art", "platformer", "top-down", "side-scroller", "side scroller"] },
+          { "name": "システム重視", "words": ["mechanic", "mechanics", "gameplay", "puzzle", "roguelike", "arcade", "physics", "score", "high score", "level design"] }
+        ],
+        "dislike": [
+          { "name": "音楽", "words": ["composing jam", "composition jam", "music jam", "soundtrack jam", "noise jam", "album"] },
+          { "name": "AI禁止", "words": ["no ai", "no generative ai", "no ai-generated"], "patterns": ["\\b(generative )?ai\\b[^.\\n]{0,80}\\b(not allowed|not permitted|prohibited|banned|forbidden|disallowed)\\b"] },
+          { "name": "現地開催", "words": ["in-person", "in person event", "on-site", "onsite", "presencial", "presencialmente"] },
+          { "name": "説明文なし", "maxChars": 50 },
+          { "name": "物語重視", "words": ["visual novel", "interactive fiction", "narrative game", "narrative-driven", "story-driven", "twine", "renpy", "poetry", "writing jam"] },
+          { "name": "エンジン指定", "words": ["pico-8", "picotron", "rpg maker", "bitsy", "gb studio", "zzt", "scratch only", "godot only", "unreal only"] },
+          { "name": "3D限定", "words": ["3d only", "must be 3d", "vr only"] }
+        ]
+      }
+    }
+  ]
 }

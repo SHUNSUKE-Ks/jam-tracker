@@ -1,4 +1,4 @@
-// npm run verify: 固定HTMLで読み取りを確かめ、data/jams.json の形を確かめる。ネットには出ない
+// npm run verify: 固定HTMLで読み取りを確かめ、保存ファイルの形を確かめる。ネットには出ない
 import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { parseList, parseDetail, findTheme } from '../src/itch.mjs';
@@ -6,6 +6,7 @@ import { load, merge } from '../src/store.mjs';
 import { candidates, applyTags, matchTags } from '../src/pick.mjs';
 
 const fx = (f) => readFileSync(new URL(`../tests/fixtures/${f}`, import.meta.url), 'utf8');
+const CONFIG = JSON.parse(readFileSync(new URL('../config.json', import.meta.url), 'utf8'));
 let n = 0;
 const check = (name, fn) => { fn(); n++; console.log(`ok  ${name}`); };
 
@@ -43,13 +44,13 @@ check('テーマ抽出', () => {
   assert.equal(findTheme('Theme: TBC, at the start of the jam'), null);
   assert.equal(findTheme('Theme: completely up to you'), null);
   assert.equal(findTheme('Theme - How well did the game follow the theme?'), null);
+  assert.equal(findTheme('The theme is a suggestion to inspire creativity and give us all something to work with'), null);
+  assert.equal(findTheme('We keep the theme secret until the start. The theme is announced at the start to ensure no one cheats by starting their game early'), null);
   assert.equal(findTheme('Theme: Freedom, but at what cost?'), 'Freedom, but at what cost?');
   assert.equal(findTheme('Theme: required'), null);
   assert.equal(findTheme('Kaidan Nights\nGame Theme: Japanese Urban Legends'), 'Japanese Urban Legends');
   assert.equal(findTheme('The theme will revealed at the start.\nTHEME\n"unstoppable"\nRULES\nThe theme is required.'), 'unstoppable');
   assert.equal(findTheme('Theme Adherence:\nYour game must fit'), null);
-  assert.equal(findTheme('The theme is a suggestion to inspire creativity and give us all something to work with'), null);
-  assert.equal(findTheme('We keep the theme secret until the start. The theme is announced at the start to ensure no one cheats by starting their game early'), null);
 });
 
 check('突き合わせ: 前回分を残し、初見日は変えない', () => {
@@ -65,7 +66,7 @@ check('突き合わせ: 前回分を残し、初見日は変えない', () => {
   assert.ok(!got['itch:gone'], '投票終了から60日を過ぎたものは消える');
 });
 
-check('候補: 過去10日に開始・締切まで10日以上・参加の多い順', () => {
+check('候補: 過去N日に開始・締切まで残りN日以上・参加の多い順', () => {
   const j = (id, start, end, joined) => ({ id, start_time: start, end_time: end, joined });
   const listed = [
     j('old', '2026-08-20T00:00:00Z', '2026-09-30T00:00:00Z', 999), // 10日より前に開始
@@ -75,9 +76,12 @@ check('候補: 過去10日に開始・締切まで10日以上・参加の多い�
     j('b', '2026-09-08T00:00:00Z', '2026-09-25T00:00:00Z', 300),
     j('c', '2026-09-10T00:00:00Z', '2026-09-21T00:00:00Z', 50), // 残りちょうど10日
   ];
-  const cfg = { startedWithinDays: 10, minDaysLeft: 10, minJoined: 0, maxCandidates: 25 };
-  assert.deepEqual(candidates(listed, cfg, '2026-09-11T00:00:00Z').map((x) => x.id), ['b', 'c', 'a']);
-  assert.deepEqual(candidates(listed, { ...cfg, minJoined: 20, maxCandidates: 1 }, '2026-09-11T00:00:00Z').map((x) => x.id), ['b']);
+  const cfg = { startedWithinDays: 10, startsWithinDays: 0, minDaysLeft: 10, minJoined: 0 };
+  const now = '2026-09-11T00:00:00Z';
+  assert.deepEqual(candidates(listed, cfg, now).map((x) => x.id), ['b', 'c', 'a']);
+  assert.deepEqual(candidates(listed, { ...cfg, minJoined: 20 }, now).map((x) => x.id), ['b', 'c']);
+  // これから始まるものを入れる指定（Unityのリスト）
+  assert.deepEqual(candidates(listed, { ...cfg, startsWithinDays: 30 }, now).map((x) => x.id), ['future', 'b', 'c', 'a']);
 });
 
 check('タグ: 好きは先に、嫌いは外す。語単位で当てる', () => {
@@ -87,26 +91,6 @@ check('タグ: 好きは先に、嫌いは外す。語単位で当てる', () =>
   };
   assert.deepEqual(matchTags('There is no aim here', tags.dislike), []); // "no ai" は "no aim" に当たらない
   assert.deepEqual(matchTags('Rules: No AI.', tags.dislike), ['AI禁止']);
-
-  // 実際の config.json の AI禁止（2026-09-11 に語だけでは取りこぼした言い回し）
-  const cfg = JSON.parse(readFileSync(new URL('../config.json', import.meta.url), 'utf8'));
-  const ai = cfg.tags.dislike.filter((t) => t.name === 'AI禁止');
-  for (const s of [
-    '7) AI-generated assets are not allowed.',
-    'The use of AI for games in this jam is not allowed.',
-    '• AI-generated assets are not permitted',
-    'No AI-generated content.',
-  ]) assert.deepEqual(matchTags(s, ai), ['AI禁止'], s);
-  assert.deepEqual(matchTags('You are allowed to generate assets and ideas with AI, but you must declare them.', ai), []);
-
-  // 現地開催・説明文なし（2026-09-11 に手で外した Literária / uOGDC）
-  const dislike = cfg.tags.dislike;
-  const lit = { id: 'lit', title: '1a Game Jam Literária', joined: 9, description: 'contarão com transmissão ao vivo e espaço presencial.' + ' x'.repeat(40) };
-  const empty = { id: 'uogdc', title: 'uOGDC Fall Jam 2026', joined: 4, description: null };
-  const ok = { id: 'ok', title: 'Online Jam', joined: 1, description: 'Make a game online from anywhere. '.repeat(3) };
-  const r = applyTags([lit, empty, ok], { like: [], dislike }, 10);
-  assert.deepEqual(r.picked.map((x) => x.id), ['ok']);
-  assert.deepEqual(r.excluded.map((x) => [x.id, x.excluded_by]), [['lit', ['現地開催']], ['uogdc', ['説明文なし']]]);
   const jams = [
     { id: 'big', title: 'Big Jam', joined: 900, description: 'Rules: NO AI!' },
     { id: 'mid', title: 'Mid Jam', joined: 500, description: 'make a game' },
@@ -119,15 +103,50 @@ check('タグ: 好きは先に、嫌いは外す。語単位で当てる', () =>
   assert.deepEqual(excluded.map((x) => [x.id, x.excluded_by]), [['big', ['AI禁止']], ['noise', ['音楽']]]);
 });
 
-check('data/jams.json の形', () => {
-  const jams = load(new URL('../data/jams.json', import.meta.url));
-  const ids = new Set();
-  for (const j of jams) {
-    assert.match(j.id, /^[a-z]+:.+/, j.id);
-    assert.ok(!ids.has(j.id), `id重複 ${j.id}`);
-    ids.add(j.id);
-    for (const k of ['title', 'url', 'start_time', 'end_time', 'status']) assert.ok(j[k], `${j.id} に ${k} が無い`);
-    assert.ok(['upcoming', 'running', 'voting', 'ended'].includes(j.status));
+check('config の嫌いタグ: 実データで取りこぼした言い回しに当たる', () => {
+  const dislike = CONFIG.lists.find((l) => l.name === 'html').tags.dislike;
+  const ai = dislike.filter((t) => t.name === 'AI禁止');
+  for (const s of [
+    '7) AI-generated assets are not allowed.',
+    'The use of AI for games in this jam is not allowed.',
+    '• AI-generated assets are not permitted',
+    'No AI-generated content.',
+  ]) assert.deepEqual(matchTags(s, ai), ['AI禁止'], s);
+  assert.deepEqual(matchTags('You are allowed to generate assets and ideas with AI, but you must declare them.', ai), []);
+
+  // 現地開催・説明文なし（2026-09-11 に手で外した Literária / uOGDC）
+  const lit = { id: 'lit', title: '1a Game Jam Literária', joined: 9, description: 'contarão com transmissão ao vivo e espaço presencial.' + ' x'.repeat(40) };
+  const empty = { id: 'uogdc', title: 'uOGDC Fall Jam 2026', joined: 4, description: null };
+  const ok = { id: 'ok', title: 'Online Jam', joined: 1, description: 'Make a game online from anywhere. '.repeat(3) };
+  const r = applyTags([lit, empty, ok], { like: [], dislike }, 10);
+  assert.deepEqual(r.picked.map((x) => x.id), ['ok']);
+  assert.deepEqual(r.excluded.map((x) => [x.id, x.excluded_by]), [['lit', ['現地開催']], ['uogdc', ['説明文なし']]]);
+});
+
+check('config の Unity リスト: 物語重視とエンジン指定を外す', () => {
+  const unity = CONFIG.lists.find((l) => l.name === 'unity');
+  const jams = [
+    { id: 'vn', title: 'Kaidan Nights', joined: 5, description: 'Create a short visual novel inspired by an urban legend. '.repeat(2) },
+    { id: 'pico', title: 'PICO-1K Jam', joined: 90, description: 'Make cool things in PICO-8 using only 1K of code. '.repeat(2) },
+    { id: 'act', title: 'Platformer Jam', joined: 50, description: 'Any engine is fine. Focus on gameplay mechanics and level design. '.repeat(2) },
+  ];
+  const { picked, excluded } = applyTags(jams, unity.tags, unity.max);
+  assert.deepEqual(picked.map((x) => x.id), ['act']);
+  assert.ok(picked[0].tags.includes('システム重視'));
+  assert.deepEqual(excluded.map((x) => x.id), ['vn', 'pico']);
+});
+
+check('保存ファイルの形', () => {
+  for (const list of CONFIG.lists) {
+    const jams = load(new URL(`../${list.file}`, import.meta.url));
+    const ids = new Set();
+    for (const j of jams) {
+      assert.match(j.id, /^[a-z]+:.+/, j.id);
+      assert.ok(!ids.has(j.id), `id重複 ${j.id}`);
+      ids.add(j.id);
+      for (const k of ['title', 'url', 'start_time', 'end_time', 'status']) assert.ok(j[k], `${j.id} に ${k} が無い`);
+      assert.ok(['upcoming', 'running', 'voting', 'ended'].includes(j.status));
+    }
   }
 });
 
